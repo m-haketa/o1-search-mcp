@@ -6,7 +6,7 @@ import { z } from "zod";
 
 // Create server instance
 const server = new McpServer({
-  name: "o3-search-mcp",
+  name: "o1-search-mcp",
   version: "0.0.1",
 });
 
@@ -32,9 +32,9 @@ const openai = new OpenAI({
   timeout: config.timeout,
 });
 
-// Define the o3-search tool
+// Define the o1-search tool
 server.tool(
-  "o3-search",
+  "o1-search",
   `An AI agent with advanced web search capabilities. Useful for finding the latest information, troubleshooting errors, and discussing ideas or design challenges. Supports natural language queries.`,
   {
     input: z
@@ -46,7 +46,7 @@ server.tool(
   async ({ input }) => {
     try {
       const response = await openai.responses.create({
-        model: "o3",
+        model: "o1",
         input,
         tools: [
           {
