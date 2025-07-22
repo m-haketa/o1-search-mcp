@@ -26,8 +26,7 @@
           uses: actions/cache@v3
           with:
             path: ~/.pnpm-store
-            key: ${{ runner.os }}-pnpm-${{
-  hashFiles('pnpm-lock.yaml') }}
+            key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
             restore-keys: ${{ runner.os }}-pnpm-
 
         - name: Install dependencies
@@ -44,8 +43,7 @@
             cp README.md release-package/
             cp LICENSE release-package/
             chmod +x release-package/index.js
-            tar -czf o1-search-mcp.tar.gz -C 
-  release-package .
+            tar -czf o1-search-mcp.tar.gz -C release-package .
 
         - name: Upload build artifact
           uses: actions/upload-artifact@v4
