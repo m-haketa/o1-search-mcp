@@ -42,3 +42,4 @@
             artifacts: release-assets.zip
             draft:     false
             prerelease: false
+            allowUpdates: true
